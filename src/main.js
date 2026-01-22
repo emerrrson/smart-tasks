@@ -1,6 +1,44 @@
 import { TaskManager } from "./models/TaskManager.js"
 import { renderTasks } from "./models/renderTasks.js"
 
+
+
+let currentLang = "pt"
+
+const translations = {
+  pt: {
+    title: "Tarefas",
+    placeholder: "Nova tarefa...",
+    empty: "Nenhuma tarefa por aqui 👀"
+  },
+  en: {
+    title: "Smart Tasks",
+    placeholder: "New task...",
+    empty: "No tasks here 👀"
+  }
+}
+
+const langBtn = document.getElementById("lang-toggle")
+const title = document.querySelector("h1")
+
+function updateLanguage() {
+  title.textContent = translations[currentLang].title
+  input.placeholder = translations[currentLang].placeholder
+
+  langBtn.textContent = currentLang.toUpperCase()
+
+  updateUI()
+}
+
+langBtn.addEventListener("click", () => {
+  currentLang = currentLang === "pt" ? "en" : "pt"
+  updateLanguage()
+})
+
+
+
+
+
 const manager = new TaskManager()
 let currentFilter = "all"
 
@@ -9,11 +47,11 @@ const addBtn = document.getElementById("add-task")
 
 function updateUI() {
   if (currentFilter === "pending") {
-    renderTasks(manager.getPending())
+    renderTasks(manager.getPending(), currentLang)
   } else if (currentFilter === "completed") {
-    renderTasks(manager.getCompleted())
+    renderTasks(manager.getCompleted(), currentLang)
   } else {
-    renderTasks(manager.getAll())
+    renderTasks(manager.getAll(), currentLang)
   }
 }
 
