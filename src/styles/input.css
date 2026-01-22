@@ -1,7 +1,100 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-h1 {
-  letter-spacing: 2px;
+@layer components {
+  .task-card {
+    @apply
+      flex items-center justify-between
+      px-4 py-3
+      rounded-xl
+      bg-zinc-800/60
+      backdrop-blur
+      border border-zinc-700/50
+      shadow-md
+      transition-all duration-300
+      hover:scale-[1.02]
+      hover:shadow-[0_0_15px_rgba(59,130,246,0.25)];
+  }
+
+  .task-text {
+    @apply text-zinc-100;
+  }
+
+  .task-actions {
+    @apply flex gap-2;
+  }
+
+  .task-done {
+    @apply
+      w-8 h-8
+      rounded-full
+      bg-green-600/80 hover:bg-green-600
+      flex items-center justify-center
+      text-sm
+      transition;
+  }
+
+  .task-delete {
+    @apply
+      w-8 h-8
+      rounded-full
+      bg-red-600/80 hover:bg-red-600
+      flex items-center justify-center
+      text-sm
+      transition;
+  }
+
+  .task-done-active {
+    @apply line-through text-zinc-400;
+  }
 }
+
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  box-shadow:
+    10vw 20vh rgba(255,255,255,0.08),
+    30vw 80vh rgba(255,255,255,0.06),
+    50vw 40vh rgba(255,255,255,0.05),
+    70vw 10vh rgba(255,255,255,0.07),
+    90vw 60vh rgba(255,255,255,0.04),
+    15vw 75vh rgba(255,255,255,0.06),
+    40vw 10vh rgba(255,255,255,0.05),
+    65vw 55vh rgba(255,255,255,0.07),
+    85vw 25vh rgba(255,255,255,0.04),
+    5vw 50vh rgba(255,255,255,0.06);
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  animation: floatParticles 18s linear infinite;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-40px, -60px);
+  }
+  50% {
+    transform: translate(60px, 40px);
+  }
+  75% {
+    transform: translate(-30px, 70px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,50 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Tasks</title>
 
-  <!-- CSS gerado pelo Tailwind -->
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <link href="../dist/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-zinc-900 text-zinc-100 min-h-screen flex items-center justify-center">
+<body class="
+  min-h-screen
+  flex items-center justify-center
+  bg-gradient-to-br from-zinc-900 via-zinc-800 to-black
+  font-['Inter']
+  text-zinc-100
+">
 
-  <main   
-    class="
+<div class="particles"></div>
+
+  <main class="
+    relative
     w-full max-w-md
     p-6
     rounded-2xl
-    bg-zinc-900/70
+
+    bg-zinc-900/60
     backdrop-blur-xl
 
-    border border-zinc-700/50
+    border border-zinc-700/60
+    shadow-[0_0_40px_rgba(59,130,246,0.25)]
 
-    shadow-[0_0_30px_rgba(0,0,0,0.7)]
-    relative
     overflow-hidden
-  "
-  >
-    <h1 class="text-2xl font-bold mb-4 text-center">
+  ">
+
+    <!-- Glow interno -->
+    <div class="
+      absolute inset-0
+      bg-gradient-to-br
+      from-blue-500/10
+      via-transparent
+      to-purple-500/10
+      pointer-events-none
+    "></div>
+
+    <h1 class="
+      relative
+      text-2xl font-bold
+      text-center mb-6
+      tracking-widest
+      text-blue-400
+      drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]
+    ">
       Smart Tasks
     </h1>
 
-    <div class="flex gap-2 mb-4">
+    <div class="relative flex gap-2 mb-4">
       <input
         id="task-input"
         type="text"
         placeholder="Nova tarefa..."
-        class="flex-1 px-4 py-2 rounded-lg bg-zinc-700 outline-none focus:ring-2 focus:ring-blue-500"
+        class="
+          flex-1
+          px-4 py-2
+          rounded-lg
+          bg-zinc-800/80
+          outline-none
+          focus:ring-2 focus:ring-blue-500
+          transition
+        "
       />
 
       <button
         id="add-task"
-        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold"
+        class="
+          px-4 py-2
+          rounded-lg
+          bg-blue-600 hover:bg-blue-700
+          font-semibold
+          transition
+        "
       >
         +
       </button>
     </div>
 
-    <ul id="task-list" class="space-y-2"></ul>
+    <ul
+      id="task-list"
+      class="relative space-y-2 text-sm text-zinc-400 text-center"
+    >
+      Nenhuma tarefa aqui 👀
+    </ul>
+
   </main>
 
   <script type="module" src="./main.js"></script>
 </body>
 </html>
+
+
