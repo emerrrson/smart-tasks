@@ -47,5 +47,4 @@ updateUI()
 
 console.log("MAIN JS CARREGADO")
 console.log(input, addBtn)
-manager.addTask("AGORA FUNCIONA 😎")
 updateUI()
